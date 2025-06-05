@@ -1,0 +1,19 @@
+name: Markdown lint
+
+on:
+  push:
+    paths:
+      - README.md
+  pull_request:
+    paths:
+      - README.md
+
+jobs:
+  markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v13
+        with:
+          globs: README.md
+
